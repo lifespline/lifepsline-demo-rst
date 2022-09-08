@@ -11,7 +11,7 @@
 import os
 import sys
 # extract documentation from the module
-sys.path.insert(0, os.path.abspath('../../src/demo-sphinx'))
+sys.path.insert(0, os.path.abspath('../src/demo'))
 
 
 # -- Project information -----------------------------------------------------
@@ -28,6 +28,12 @@ release = '1.0.0'
 extensions = [
     # display docs build time
     'sphinx.ext.duration',
+
+    # process docstrings in src
+    'sphinx.ext.autodoc',
+
+    # test code snippets
+    'sphinx.ext.doctest',
 ]
 
 templates_path = ['_templates']
