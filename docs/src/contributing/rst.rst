@@ -16,11 +16,14 @@ You'll find literature on these concepts at :doc:`../literature`
 * :ref:`root document <root>`
 * :ref:`code-block <code>`
 * :ref:`domain <domain>`
+* :ref:`include .rst file <include_rst_file>`
+
+.. _include_rst_file:
+.. _inline_ext_link:
 
 .. _root:
 
 this is the root document
-
 
 .. _domain:
 
@@ -44,6 +47,12 @@ Code block
 .. code:: bash
 
     echo "this is a code block"
+
+.. code-block:: json
+
+    {
+        "this": "is a code block"
+    }
 
 .. _cross_reference:
 
@@ -71,21 +80,34 @@ Directive
 Directives:
 
 * py:function
+* autofunction
+* autoexception
 
 :py:func:`mod.f` is the documentation for the python function ``mod.f()``:
 
-.. py:function:: mod.f(arg=None)
+.. py:function:: mod.f(arg=[0])
 
-   High-level description of what the function does/returns.
+   Returns 0 if ``arg == ['0']``
 
-   :param arg: arg description.
-   :type arg: list[str] or None
-   :raise mod.InvalidArgError: reason for err description.
-   :return: what the function returns.
-   :rtype: list[str]
+   :param arg: An argument of no use.
+   :type arg: list[int]
+   :raise mod.InvalidArgError: if arg is not [0].
+   :return: 0
+   :rtype: list[int]
 
 notice that the function raises an exception :py:exc:`mod.InvalidArgError`:
 
 .. py:exception:: mod.InvalidArgError
 
    Raised if some condition is met.
+
+Notice this can be replaced by fetching the documentation from the function itself:
+
+.. autofunction:: mod.f
+
+.. autoexception:: mod.InvalidArgError
+
+QA
+--
+
+Couldn't really understand `doctest <https://www.sphinx-doc.org/en/master/tutorial/describing-code.html#including-doctests-in-your-documentation>`_. Is the purpose to test the code snippets included in the docs? That is amazing, but I couldn't really get it to work. Also, I'm wondering if those code snippets could be imported in docstrings of methods. In a way, these are already unit tests, but not all unit tests are interesting to post in the API reference of the module.
