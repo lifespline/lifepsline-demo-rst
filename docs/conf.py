@@ -3,6 +3,17 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+# Note
+#
+# An alternative to changing the sys.path variable is to create a pyproject.toml
+# file and make the code installable, so it behaves like any other Python library.
+# However, the sys.path approach is simpler.
+import os
+import sys
+# extract documentation from the module
+sys.path.insert(0, os.path.abspath('../../src/demo-sphinx'))
+
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
