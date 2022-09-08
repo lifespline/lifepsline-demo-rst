@@ -1,8 +1,8 @@
-============
-Contributing
-============
+=============
+API Reference
+=============
 
-Check out the :doc:`src/usage` section for further information.
+Check out the :doc:`../src/about` section for further information.
 
 .. toctree::
    :maxdepth: 2

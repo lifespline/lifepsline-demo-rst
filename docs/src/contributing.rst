@@ -2,13 +2,14 @@
 Contributing
 ============
 
-Check out the :doc:`src/usage` section for further information.
+Check out the :doc:`about` section for further information.
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    contributing/documentation
+   contributing/rst
 
 
 
